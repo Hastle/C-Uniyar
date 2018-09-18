@@ -5,10 +5,13 @@ int main() {
 	int A[N],n,i,srdn=0;
 	setlocale(LC_ALL,"RUS");
 	printf("Введите размер массива: ");
-	scanf("%d",&n);
-	//Нужны доп. проверки
+	if(!scanf("%d", &n)) {
+		printf("Вы ввели не число \n");
+		return 0;
+	}
 	if (n<3) {
 		printf("Размер массива меньше 3, введите заново \n");
+		return 0;
 	}
 	printf("Введите элементы массива: ");
 	for (i=0;i<n;i++)
@@ -20,7 +23,7 @@ int main() {
 			printf("%d ",A[i+1]);
 	}
 	printf("\n\n");
-	return 1;
+	return 0;
 }
 
 // 7
