@@ -3,9 +3,15 @@
 int main(){
 	int x,y,i,j,q,max = 0,sum = 0;
 	printf("Введите кол-во строк: ");
-	scanf("%d", &x);
+	if(!scanf("%d", &x)) {
+		printf("Вы ввели не число \n");
+		return 0;
+	}
 	printf("Введите кол-во столбцов: ");
-	scanf("%d", &y);
+	if(!scanf("%d", &x)) {
+		printf("Вы ввели не число \n");
+		return 0;
+	}
 	printf("\n");
 	int A[x][y];
 	for (i=0; i<x; i++) {
