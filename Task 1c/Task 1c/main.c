@@ -22,8 +22,6 @@ int main(){
 		printf("\n");
 	}
 	printf("\n");
-	printf("sum = %d", sum);
-	printf("\n\n");
 	for (i=0; i<x; i++) {
 		for (j=0; j<y; j++) {
 			if((i==0)&&(j!=0)) {
