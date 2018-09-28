@@ -8,7 +8,7 @@ int main(){
 		return 0;
 	}
 	printf("Введите кол-во столбцов: ");
-	if(!scanf("%d", &x)) {
+	if(!scanf("%d", &y)) {
 		printf("Вы ввели не число \n");
 		return 0;
 	}
