@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <locale.h>
+#define X 100
+#define Y 100
 int main(){
-	int x,y,i,j,q,max = 0,sum = 0;
+	int x,y,i,j,q,A[x][y],max = 0,sum = 0;
+	setlocale(LC_ALL,"RUS");
 	printf("Введите кол-во строк: ");
 	if(!scanf("%d", &x)) {
 		printf("Вы ввели не число \n");
@@ -13,7 +16,6 @@ int main(){
 		return 0;
 	}
 	printf("\n");
-	int A[x][y];
 	for (i=0; i<x; i++) {
 		for (j=0; j<y; j++) {
 			printf("A[%d][%d] = ", i, j);
