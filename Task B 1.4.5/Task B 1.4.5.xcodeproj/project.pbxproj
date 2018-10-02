@@ -246,6 +246,7 @@
 				7ECF5B1B215EBDFC00B9738E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
