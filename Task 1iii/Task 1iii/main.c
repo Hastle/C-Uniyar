@@ -19,7 +19,7 @@ void push(struct Sentence *s) {
 	if (s->kw <= Y){
 		printf("\nВведите ваше слово.\n\n");
 		scanf("%s", s->w[s->kw++].l);
-		printf("\n\n");
+		printf("\n");
 		return;
 	}
 	else{
@@ -35,23 +35,23 @@ void show(struct Sentence *s) {
 		printf("%s\n", s->w[i].l);
 		i--;
 	}
-	printf("\n\n");
+	printf("\n");
 }
 
 void last(struct Sentence *s) {
 	int i=s->kw-1;
-	printf("\n");
-	printf("%s\n", s->w[i].l);
+	printf("\n%s", s->w[i].l);
+	printf("\n\n");
 }
 
 void delete(struct Sentence *s) {
 	s->kw--;
-	printf("\n\n");
+	printf("\n");
 }
 
 void numb(struct Sentence *s){
-	int i=s->kw-1;
-	printf("\n%d", i);
+	int i=s->kw;
+	printf("\nКол-во эл-тов в стеке = %d", i);
 	printf("\n\n");
 }
 
@@ -70,7 +70,7 @@ int main() {
 	setlocale(LC_ALL,"RUS");
 	s = &sent;
 	while (1){
-		printf("Нажмите:\n'1' для ввода нового слова;\n'2' для удаления последнего эл-та;\n'3' вывод последнего эл-та;\n'4' для вывода эл-тов стека;\n'5' вывод кол-ва эл-тов в стеке;\n'6' очистка стека;\n'0' выход;\n\n");
+		printf("Нажмите:\n'1' для ввода нового слова;\n'2' для удаления последнего эл-та;\n'3' для вывода последнего эл-та;\n'4' для вывода эл-тов стека;\n'5' для вывода кол-ва эл-тов в стеке;\n'6' для очистки стека;\n'0' выход;\n\n");
 		scanf("\n%d",&ans);
 		if (ans==1) {
 			push(s);
