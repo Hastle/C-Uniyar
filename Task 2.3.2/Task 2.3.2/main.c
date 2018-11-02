@@ -39,20 +39,32 @@ int main(){
 			sum=0;
 		}
 	}
-	/*=== for (i=z=0; i<x; i++) {
-		for (j=q=0; j<y; j++) {
-			while ((z!=x)&&(q!=y)) {
-				z++;
-				q++;
-				B[i][j]+=B[z][q];
-			}
-			while ((z!=0)&&(q!=y)) {
-				z--;
-				q++;
-				B[i][j]+=B[z][q];
-			}
+	printf("\n");
+	for (i=0; i<x; i++) {
+		for (j=0; j<y; j++) {
+			printf("%d	", B[i][j]);
 		}
-	} ===*/
+		printf("\n");
+	}
+	for (i=0; i<x; i++) {
+		for (j=0; j<y; j++) {
+			if ((i!=0)&&(j!=y))
+				B[i][j]+=B[i-1][j+1];
+		}
+	 }
+	printf("\n");
+	for (i=0; i<x; i++) {
+		for (j=0; j<y; j++) {
+			printf("%d	", B[i][j]);
+		}
+		printf("\n");
+	}
+	for (i=x; i>0; i--) {
+		for (j=y; j>0; j--) {
+			if ((i!=0)&&(j!=0))
+				B[i-1][j-1]+=B[i][j];
+		}
+	}
 	printf("\n");
 	for (i=0; i<x; i++) {
 		for (j=0; j<y; j++) {
