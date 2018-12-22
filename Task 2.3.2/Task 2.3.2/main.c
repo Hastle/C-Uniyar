@@ -3,7 +3,7 @@
 #define X 100
 #define Y 100
 int main(){
-	int x,y,i,j,q,z,A[X][Y],B[X][Y],sum = 0;
+	int x,y,i,j,q,z,A[X][Y],B[X][Y],C[X][Y],sum = 0;
 	setlocale(LC_ALL,"RUS");
 	printf("Введите кол-во строк: ");
 	if(!scanf("%d", &x)) {
@@ -36,6 +36,7 @@ int main(){
 				sum+=A[i][q];
 			printf("sum=%d\n", sum);
 			B[i][j]=sum;
+            C[i][j]=sum;
 			sum=0;
 		}
 	}
@@ -49,26 +50,26 @@ int main(){
 	for (i=0; i<x; i++) {
 		for (j=0; j<y; j++) {
 			if ((i!=0)&&(j!=y))
-				B[i][j]+=B[i-1][j+1];
+				C[i][j]+=C[i-1][j+1];
 		}
 	 }
 	printf("\n");
 	for (i=0; i<x; i++) {
 		for (j=0; j<y; j++) {
-			printf("%d	", B[i][j]);
+			printf("%d	", C[i][j]);
 		}
 		printf("\n");
 	}
 	for (i=x; i>0; i--) {
 		for (j=y; j>0; j--) {
 			if ((i!=0)&&(j!=0))
-				B[i-1][j-1]+=B[i][j];
+				C[i-1][j-1]+=B[i][j];
 		}
 	}
 	printf("\n");
 	for (i=0; i<x; i++) {
 		for (j=0; j<y; j++) {
-			printf("%d	", B[i][j]);
+			printf("%d	", C[i][j]);
 		}
 		printf("\n");
 	}
