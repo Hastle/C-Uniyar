@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
+
 typedef struct List {
     int info;
     struct List* next;
@@ -18,38 +19,38 @@ List *delute_item(List *first, int number) {
     if(Current!=NULL) {
         if(Current==first) {
             first=first->next;
-            free(Current);
+            free(Current);r
             Current=first;
         }
-    else {
-        tmp=first;
-    while(tmp->next!=Current)
-        tmp=tmp->next;
-    tmp->next=Current->next;
-    free(Current);
-    Current=tmp;
-    }
+        else {
+            tmp=first;
+            while(tmp->next!=Current)
+                tmp=tmp->next;
+            tmp->next=Current->next;
+            free(Current);
+            Current=tmp;
+        }
     }
     return first;
 }
 
-/*List* Insert_item(List *first,int number,int item)
-{
-    List * tmp;
-    List *Current;
-    for(int i=1;i<number&&Current!=NULL;i++)
-        Current=Current->next;
-    if(Current==first)
-    {
-        tmp->next=first->next;
-        tmp->info=item;
-        first=tmp;
-    }
-    else
-    {
-        
-    }
-}*/
+List* Insert_item(List *first,int number,int item)
+ {
+ List * tmp=first;
+ List *Current=first;
+ for(int i=1;i<number&&Current!=NULL;i++)
+ Current=Current->next;
+ if(Current==first) {
+
+ tmp->next=first->next;
+ tmp->info=item;
+ first=tmp;
+ }
+ else
+ {
+ 
+ }
+ }
 
 
 void push(int inf) {
@@ -75,7 +76,7 @@ void push(int inf) {
 
 void printList(List *first)
 {
-   List* Current=first;
+    List* Current=first;
     while(Current!=0)
     {
         printf("%d ",Current->info);
