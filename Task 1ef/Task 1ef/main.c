@@ -1,68 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h>
+#include <math.h>
+#include <stdlib.h>
 
+#define N 100
 
-typedef struct List {
-    int info;
+typedef struct List
+{
+    int value;
     struct List* next;
 } List;
 
 List *First, *Last;
 
-
-List *delute_item(List *first, int number) {
-    List *tmp;
-    List *Current=first;
-    for(int i=1;i<number&&Current!=NULL;i++)
-        Current=Current->next;
-    if(Current!=NULL) {
-        if(Current==first) {
-            first=first->next;
-            free(Current);r
-            Current=first;
-        }
-        else {
-            tmp=first;
-            while(tmp->next!=Current)
-                tmp=tmp->next;
-            tmp->next=Current->next;
-            free(Current);
-            Current=tmp;
-        }
-    }
-    return first;
-}
-
-List* Insert_item(List *first,int number,int item)
- {
- List * tmp=first;
- List *Current=first;
- for(int i=1;i<number&&Current!=NULL;i++)
- Current=Current->next;
- if(Current==first) {
-
- tmp->next=first->next;
- tmp->info=item;
- first=tmp;
- }
- else
- {
- 
- }
- }
-
-
-void push(int inf) {
+void push(int inf)
+{
     struct List* el;
     
     el = (struct List*)malloc(sizeof(struct List));
-    if (el == NULL) {
+    if (el == NULL)
+    {
         printf("Не удалось выделить память под элемент списка.\n");
         return;
     }
     
-    el->info = inf;
+    el->value = inf;
     el->next = NULL;
     
     if (First == NULL)
@@ -74,49 +36,39 @@ void push(int inf) {
     }
 }
 
-void printList(List *first)
-{
-    List* Current=first;
-    while(Current!=0)
-    {
-        printf("%d ",Current->info);
-        Current=Current->next;
-    }
-    return;
-}
 
-int main(void)
-{
-    int inf, number;
-    char c;
-    List *el, *tmp;
-    
-    setlocale(LC_ALL, "Russian");
-    
+void main() {
+    int j;
+    setlocale(LC_ALL, "RUS");
+    List *el, *help, *before;
     First = Last = NULL;
+    before = NULL;
     
-    printf("Введите элементы списка (окончание ввода = любой символ кроме цифры):\n");
-    while (scanf("%d", &inf) != 0)
-        push(inf);
-    c=getchar();
-    
-    printf("Введите номер элемента который вы хотите удалить: ");
-    scanf("%d", &number);
-    
-    printf("Изначальный список: ");
-    printList(First);
-    printf("\n");
-    First=delute_item(First, number);
-    printf("Измененный список: ");
-    printList(First);
-    printf("\n\n");
-    
-    for (el = First; el != NULL;)
-    {
-        tmp = el;
-        el = el->next;
-        free(tmp);
+    printf("Введите последовательность чисел:\n");
+    while (scanf("%d", &j) != 0) {
+        push(j);
     }
     
-    return 0;
+    
+    while ((First->value % 2 == 0)) {
+        help = First;
+        First = First->next;
+        free(help);
+        if (First == NULL)
+            return;
+    }
+    before = First;
+    for (el = First; el != NULL; el = el->next) {
+        if (el->value % 2 == 0) {
+            help = before->next;
+            before->next = el->next;
+            free(help);
+            el=before;
+        }
+        else before = el;
+    }
+    for (el = First; el != NULL; el = el->next) {
+        printf("%d ", el->value);
+    }
+    printf("\n\n");
 }
