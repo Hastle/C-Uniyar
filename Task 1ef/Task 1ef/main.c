@@ -37,7 +37,7 @@ void push(int inf)
 }
 
 
-void main() {
+int main() {
     int j;
     setlocale(LC_ALL, "RUS");
     List *el, *help, *before;
@@ -55,7 +55,7 @@ void main() {
         First = First->next;
         free(help);
         if (First == NULL)
-            return;
+            return(1);
     }
     before = First;
     for (el = First; el != NULL; el = el->next) {
